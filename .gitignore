@@ -10,6 +10,6 @@ __pycache__/
 # 모든 확장자가 csv인 파일 무시
 *.csv
 
-# 다음 파일들 무시
-auc_result.txt
-confusion_matrix.txt
+# 모든 확장자가 txt인 파일 무시, 다음 파일들은 제외
+*.txt
+!requirements.txt
