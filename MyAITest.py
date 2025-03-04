@@ -81,14 +81,19 @@ def test001_averageAUC():
                             'deer', 'dog', 'frog', 'horse',\
                              'ship', 'truck'], "test_results.csv")
 
+    print("\n#### 1. Check test dataset for training data contamination ####")
     MyAITest.doHashAndSave()
     
     print("Overlaped Data Flag: " + str(MyAITest.hasOverlaps)) # 중복 데이터 확인
-    
+
+    print("\n#### 2. Testing... ####")
     MyAITest.doAITest("for AUC") # 실제 Test run
-    
+
+    print("\n#### 3. Draw the ROC curves ####")
     MyAITest.drawROC() # ROC 곡선 그림
-    
+
+    print("\n#### 4. Calculate the AUC for ROC curves ####")
     MyAITest.calculateAUC() # AUC 값 계산
-    
+
+    print("\n#### 5. Assert the result if the average AUC >= 0.8 ####")
     assert (sum(MyAITest.aucList)/len(MyAITest.aucList)) >= 0.8     # 평균 auc가 0.8 이상인지 확인
